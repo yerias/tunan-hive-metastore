@@ -7,8 +7,11 @@
 
 # 介绍
 该项目采用SpringBoot，分为controller层、dao层、service层
+
 controller层负责处理http相关请求，如通过接口接收数据等
+
 dao层负责和数据库交互，这里我们直接使用HiveMetaStoreClient即可
+
 service层负责处理具体业务操作，如创建、删除等相关操作
 
 # 遗留
