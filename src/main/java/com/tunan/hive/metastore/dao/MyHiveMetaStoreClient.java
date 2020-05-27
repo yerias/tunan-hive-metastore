@@ -11,23 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyHiveMetaStoreClient {
 
-    // 引入最最最核心的类 HiveMetaStoreClient
-    private HiveMetaStoreClient hiveMetaStoreClient = null;
     public HiveMetaStoreClient getHiveMetaStoreClient() throws TException {
-
         // 设置Hive配置
         HiveConf hiveConf = new HiveConf();
-        // 加载配置文件
+        // 加载配置文件 配置文件中有hiveMetaStore服务的地址
         hiveConf.addResource("hive-site.xml");
-        try {
-            //配置文件中有hiveMetaStore服务的地址
-            hiveMetaStoreClient = new HiveMetaStoreClient(hiveConf);
-
-        } catch (TException e) {
-            e.printStackTrace();
-        }
-        // 返回hiveMetaStoreClient
-        return hiveMetaStoreClient;
+        // 引入最最最核心的类 HiveMetaStoreClient 并返回 返回hiveMetaStoreClient
+        return new HiveMetaStoreClient(hiveConf);
     }
 
     // 关闭连接
